@@ -1,10 +1,9 @@
-/* --- BASE STYLES / MOBILE VIEW (Mobile-first) --- */
+
 html {
     scroll-behavior: smooth; /* */
 }
 
 body {
-    /* Soft pastel cream background */
     background-color: #fdfcf0; 
     padding: 5px; /* */
     margin: 15px; /* */
@@ -20,17 +19,15 @@ h1 {
     color: #555;
 }
 
-/* Mobile-first: One column grid */
 .grid {
     display: grid; /* */
     grid-template-columns: 1fr; /* */
-    gap: 10px; /* 10px gap between rows and columns */
+    gap: 10px;
 }
 
 figure {
     margin: 0;
     padding: 15px;
-    /* Pastel Blue border replacing the standard blue */
     border: 5px solid #aec6cf; 
     background-color: #ffffff;
 }
@@ -47,61 +44,58 @@ figcaption {
     margin-top: 10px;
 }
 
-/* --- TABLET VIEW (Triggers at 772px) --- */
 @media screen and (min-width: 772px) {
     .grid {
-        grid-template-columns: 1fr 1fr; /* Two column grid */
+        grid-template-columns: 1fr 1fr;
     }
 
     figure {
-        border-radius: 50%; /* Circular shape */
-        aspect-ratio: 1 / 1; /* Helps maintain circularity */
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        overflow: hidden; /* Ensures image fits circular border */
+        overflow: hidden;
     }
 
-    /* Set the last figure to take up both columns */
     figure:last-child {
         grid-column: span 2;
         border-radius: 40px; 
     }
 }
 
-/* --- LARGE SCREEN VIEW (Triggers at 992px) --- */
+
 @media screen and (min-width: 992px) {
     .grid {
-        grid-template-columns: 1fr 1fr 1fr; /* Three column grid */
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     figure {
-        border-radius: 0; /* Remove border radius from all of the figures */
+        border-radius: 0;
         aspect-ratio: auto;
     }
 
-    /* Set every third figure to take up both columns */
     figure:nth-child(3n) {
         grid-column: span 2;
     }
 }
 
-/* --- PREFERS-REDUCED-MOTION --- */
+
 @media (prefers-reduced-motion: reduce) {
     html {
-        scroll-behavior: auto; /* Remove the scroll behavior */
+        scroll-behavior: auto;
     }
 }
 
-/* --- DARK COLOR SCHEME --- */
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #1a1a1a;
     }
 
     figure {
-        background-color: #333333; /* Dark background color */
-        color: #ffffcc; /* Lighter yellow-ish font color */
-        border-color: black; /* Black border color */
+        background-color: #333333;
+        color: #ffffcc;
+        border-color: black;
     }
 }
